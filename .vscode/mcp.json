@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"mcp-e-com-server": {
+			"type": "stdio",
+			"command": "npm",
+			"args": [
+				"run",
+				"server:dev"
+			]
+		}
+	},
+	"inputs": []
+}
