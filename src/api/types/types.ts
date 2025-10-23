@@ -34,3 +34,8 @@ export interface OrderAttributes {
   totalAmount: number;
   status: 'pending' | 'completed' | 'cancelled';
 }
+
+export interface ChatMessage {
+  role: string,
+  content: string
+}
