@@ -36,6 +36,11 @@ export interface OrderAttributes {
 }
 
 export interface ChatMessage {
-  role: string,
-  content: string
+  role: string;
+  content: string;
+}
+
+export interface ToolCall {
+  name : string;
+  arguments: Record<string, any>
 }
