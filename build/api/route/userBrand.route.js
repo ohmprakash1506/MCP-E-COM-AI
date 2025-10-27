@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const userBrand_controller_1 = require("../controller/userBrand.controller");
+const router = (0, express_1.Router)();
+const controller = new userBrand_controller_1.UserBrandController();
+router.post("/subscribe", controller.subscribeBrand);
+router.post("/unsubscribe", controller.unsubscribeBrand);
+router.get("/user/:userId", controller.getSubscribedBrands);
+exports.default = router;

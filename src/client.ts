@@ -39,7 +39,7 @@ class ClientInitialization {
 
             const transport = new StdioClientTransport({
             command: "node",
-            args: ["ts-node", "src/server.ts"],
+            args: ["build/server.js"],
             stderr: "ignore",
             });
             await this.mcpClient.connect(transport)
@@ -66,7 +66,7 @@ class ClientInitialization {
 
             return chatResponse
         } catch (error) {
-            process.stderr.write(`MCP server failed to start: ${error}\n`);
+            process.stderr.write(`MCP AI connection issue: ${error}\n`);
             throw error;
         }
     }
@@ -77,6 +77,14 @@ const main = async() => {
 
     try {
         await client.initialization()
+
+        const response_1: any = await client.chatOllama("how are you")
+
+        process.stderr.write(`AI response 1: ${response_1}\n`)
+
+        const response_2: any = await client.chatOllama("What is your name")
+
+        process.stderr.write(`AI response 1: ${response_2}\n`)
     } catch (error) {
         process.stderr.write(`MCP client connection issue: ${error}\n`);
     }
